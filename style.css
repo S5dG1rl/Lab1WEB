@@ -82,12 +82,12 @@ section h2 {
 }
 
 section img {
-    width: 100%;
+    width: 50%;
     height: auto;
     display: block;
     margin-bottom: 1.5rem;
     border-radius: 8px;
-    max-width: 100%;
+    max-width: 50%;
 }
 
 section p {
