@@ -86,6 +86,7 @@ section img {
     height: auto;
     display: block;
     margin-bottom: 1.5rem;
+    margin: 20px auto;
     border-radius: 8px;
     max-width: 50%;
 }
