@@ -16,25 +16,66 @@
                 <a href="build-lunch.html" class="active">Собрать ланч</a>
                 <a href="#soups">Супы</a>
                 <a href="#mains">Главное</a>
+                <a href="#starters">Стартеры</a>
                 <a href="#drinks">Напитки</a>
+                <a href="#desserts">Десерты</a>
                 <a href="#contact">Контакты</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Супы -->
         <section id="soups">
             <h2>Супы</h2>
+            <div class="filters">
+                <button data-kind="fish">Рыбный</button>
+                <button data-kind="meat">Мясной</button>
+                <button data-kind="veg">Вегетарианский</button>
+            </div>
             <div class="dishes-grid"></div>
         </section>
 
+        <!-- Главные блюда -->
         <section id="mains">
             <h2>Главные блюда</h2>
+            <div class="filters">
+                <button data-kind="fish">Рыбное</button>
+                <button data-kind="meat">Мясное</button>
+                <button data-kind="veg">Вегетарианское</button>
+            </div>
             <div class="dishes-grid"></div>
         </section>
 
+        <!-- Стартеры -->
+        <section id="starters">
+            <h2>Салаты и стартеры</h2>
+            <div class="filters">
+                <button data-kind="fish">Рыбный</button>
+                <button data-kind="meat">Мясной</button>
+                <button data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+
+        <!-- Напитки -->
         <section id="drinks">
             <h2>Напитки</h2>
+            <div class="filters">
+                <button data-kind="cold">Холодный</button>
+                <button data-kind="hot">Горячий</button>
+            </div>
+            <div class="dishes-grid"></div>
+        </section>
+
+        <!-- Десерты -->
+        <section id="desserts">
+            <h2>Десерты</h2>
+            <div class="filters">
+                <button data-kind="small">Маленькая порция</button>
+                <button data-kind="medium">Средняя порция</button>
+                <button data-kind="large">Большая порция</button>
+            </div>
             <div class="dishes-grid"></div>
         </section>
     </main>
@@ -52,40 +93,35 @@
                         <div id="order-total" style="display: none; margin-top: 15px; font-weight: bold; font-size: 1.2rem; color: #2e8b57;">
                             Стоимость заказа: <span>0</span> ₽
                         </div>
-                        <!-- Скрытые поля для отправки keyword -->
+                        <!-- Скрытые поля -->
                         <input type="hidden" id="selected-soup" name="soup">
                         <input type="hidden" id="selected-main" name="main-dish">
+                        <input type="hidden" id="selected-starter" name="starter">
                         <input type="hidden" id="selected-drink" name="drink">
+                        <input type="hidden" id="selected-dessert" name="dessert">
                     </div>
 
                     <div class="form-column">
                         <h3>Ваши данные</h3>
                         <label for="name">Имя *</label>
                         <input type="text" id="name" name="name" required>
-
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" required>
-
                         <label for="subscribe">
                             <input type="checkbox" id="subscribe" name="subscribe" checked>
                             Подписаться на рассылку
                         </label>
-
                         <label for="phone">Телефон *</label>
                         <input type="tel" id="phone" name="phone" required>
-
                         <label for="address">Адрес доставки *</label>
                         <input type="text" id="address" name="address" required>
-
                         <fieldset>
                             <legend>Время доставки *</legend>
                             <label><input type="radio" name="delivery-time-type" value="asap" required> Как можно скорее</label>
                             <label><input type="radio" name="delivery-time-type" value="custom"> Указать время</label>
                         </fieldset>
-
                         <label for="delivery-time">Укажите время</label>
                         <input type="time" id="delivery-time" name="delivery-time" min="07:00" max="23:00" step="300">
-
                         <div class="form-buttons">
                             <button type="reset">Сбросить</button>
                             <button type="submit">Отправить заказ</button>
@@ -105,7 +141,6 @@
         </div>
     </footer>
 
-    <!-- Подключение скриптов -->
     <script src="dishes.js"></script>
     <script src="render-dishes.js"></script>
     <script src="order-logic.js"></script>
