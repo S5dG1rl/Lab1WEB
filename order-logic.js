@@ -1,29 +1,34 @@
 let selectedDishes = {
   soup: null,
   main: null,
-  drink: null
+  starter: null,
+  drink: null,
+  dessert: null
 };
 
 const categoryLabels = {
   soup: "Суп",
   main: "Главное блюдо",
-  drink: "Напиток"
+  starter: "Стартер",
+  drink: "Напиток",
+  dessert: "Десерт"
 };
 
 function selectDish(keyword) {
   const dish = dishes.find(d => d.keyword === keyword);
   if (!dish) return;
 
-  // Обновляем выбор
   selectedDishes[dish.category] = dish;
 
-  // Снимаем выделение со всех карточек этой категории
-  document.querySelectorAll(`.dish-card[data-dish^="${dish.category}"]`).forEach(card => {
-    card.style.border = '';
+  // Выделяем карточку (ищем по всем секциям)
+  document.querySelectorAll(`.dish-card`).forEach(card => {
+    if (card.dataset.dish === keyword) {
+      card.style.border = '2px solid tomato';
+    } else if (card.dataset.dish.startsWith(dish.category)) {
+      // Снимаем выделение с других в той же категории
+      // (опционально — можно оставить, если выбор один на категорию)
+    }
   });
-  // Выделяем текущую
-  const card = document.querySelector(`.dish-card[data-dish="${keyword}"]`);
-  if (card) card.style.border = '2px solid tomato';
 
   updateOrderPreview();
 }
@@ -58,22 +63,12 @@ function updateOrderPreview() {
   totalEl.querySelector('span').textContent = total;
   totalEl.style.display = 'block';
 
-  // Обновляем скрытые поля формы для отправки
-  document.getElementById('selected-soup').value = selectedDishes.soup ? selectedDishes.soup.keyword : '';
-  document.getElementById('selected-main').value = selectedDishes.main ? selectedDishes.main.keyword : '';
-  document.getElementById('selected-drink').value = selectedDishes.drink ? selectedDishes.drink.keyword : '';
+  // Обновляем скрытые поля
+  document.getElementById('selected-soup').value = selectedDishes.soup?.keyword || '';
+  document.getElementById('selected-main').value = selectedDishes.main?.keyword || '';
+  document.getElementById('selected-starter').value = selectedDishes.starter?.keyword || '';
+  document.getElementById('selected-drink').value = selectedDishes.drink?.keyword || '';
+  document.getElementById('selected-dessert').value = selectedDishes.dessert?.keyword || '';
 }
 
-// Инициализация при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-  // Добавим скрытые поля в форму для отправки keyword
-  const form = document.querySelector('form[action="https://httpbin.org/post"]');
-  if (form) {
-    const hiddenFields = `
-      <input type="hidden" id="selected-soup" name="soup">
-      <input type="hidden" id="selected-main" name="main-dish">
-      <input type="hidden" id="selected-drink" name="drink">
-    `;
-    form.insertAdjacentHTML('beforeend', hiddenFields);
-  }
-});
+// Инициализация — ничего не делаем, всё работает через selectDish
