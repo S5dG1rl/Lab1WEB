@@ -105,6 +105,80 @@
         </section>
     </main>
 
+    <!-- Форма заказа -->
+    <section class="order-form-section">
+        <div class="container">
+            <h2>Оформить заказ</h2>
+            <form action="https://httpbin.org/post" method="POST">
+                <div class="form-columns">
+                    <div class="form-column">
+                        <h3>Ваш заказ</h3>
+                        <label for="soup">Суп *</label>
+                        <select id="soup" name="soup" required>
+                            <option value="">Выберите суп</option>
+                            <option value="chicken-noodle">Куриный суп с лапшой</option>
+                            <option value="beetroot-soup">Свекольник с яйцом</option>
+                            <option value="mushroom-cream">Грибной крем-суп</option>
+                        </select>
+
+                        <label for="main-dish">Главное блюдо *</label>
+                        <select id="main-dish" name="main-dish" required>
+                            <option value="">Выберите блюдо</option>
+                            <option value="chicken-rice">Курица с овощами и рисом</option>
+                            <option value="salmon-quinoa">Лосось на пару с киноа</option>
+                            <option value="tofu-stew">Овощное рагу с тофу</option>
+                        </select>
+
+                        <label for="drink">Напиток *</label>
+                        <select id="drink" name="drink" required>
+                            <option value="">Выберите напиток</option>
+                            <option value="green-tea">Зелёный чай</option>
+                            <option value="orange-juice">Свежевыжатый апельсиновый сок</option>
+                            <option value="cranberry-juice">Клюквенный морс</option>
+                        </select>
+
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" name="comment" rows="3" placeholder="Например: без лука, острее и т.д."></textarea>
+                    </div>
+
+                    <div class="form-column">
+                        <h3>Ваши данные</h3>
+                        <label for="name">Имя *</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="subscribe">
+                            <input type="checkbox" id="subscribe" name="subscribe" checked>
+                            Подписаться на рассылку
+                        </label>
+
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="address">Адрес доставки *</label>
+                        <input type="text" id="address" name="address" required>
+
+                        <fieldset>
+                            <legend>Время доставки *</legend>
+                            <label><input type="radio" name="delivery-time-type" value="asap" required> Как можно скорее</label>
+                            <label><input type="radio" name="delivery-time-type" value="custom"> Указать время</label>
+                        </fieldset>
+
+                        <label for="delivery-time">Укажите время</label>
+                        <input type="time" id="delivery-time" name="delivery-time" min="07:00" max="23:00" step="300">
+
+                        <div class="form-buttons">
+                            <button type="reset">Сбросить</button>
+                            <button type="submit">Отправить заказ</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <footer id="contact">
         <div class="container">
             <p>📍 Головной офис: Москва, ул. Пушкина, д. 10</p>
