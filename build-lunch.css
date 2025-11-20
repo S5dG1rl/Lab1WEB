@@ -1,3 +1,29 @@
+/* ========== Общие стили ========== */
+main {
+    padding: 30px 0 60px;
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section h2 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #2e8b57;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -0.5px;
+}
+
 /* ========== Сетка блюд ========== */
 .dishes-grid {
     display: grid;
@@ -63,7 +89,6 @@
     background-color: #e0d9d0;
 }
 
-/* Выделение выбранного блюда */
 .dish-card.selected,
 .dish-card:hover {
     border: 2px solid tomato;
@@ -103,32 +128,6 @@
     color: white;
     border-color: #2e8b57;
     box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
-}
-
-/* ========== Секции категорий ========== */
-main {
-    padding: 30px 0 60px;
-}
-
-section {
-    margin-bottom: 50px;
-    padding: 30px 20px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-section h2 {
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: #2e8b57;
-    margin-bottom: 24px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: -0.5px;
 }
 
 /* ========== Форма заказа ========== */
@@ -242,45 +241,7 @@ section h2 {
     opacity: 0.9;
 }
 
-@media (max-width: 800px) {
-    .dishes-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    }
-}
-
-@media (max-width: 600px) {
-    section {
-        margin: 0 15px 40px;
-        padding: 25px 15px;
-    }
-
-    .filters {
-        gap: 8px;
-    }
-
-    .filters button {
-        padding: 8px 16px;
-        font-size: 0.95rem;
-    }
-
-    .dish-card {
-        min-height: 440px;
-        padding: 20px;
-    }
-
-    .dish-card img {
-        height: 180px;
-    }
-
-    .form-columns {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .form-column {
-        width: 100%;
-    }
-}
+/* ========== Готовые ланчи ========== */
 .lunches-section {
     background-color: #f9f9f9;
     padding: 50px 0 40px;
@@ -292,22 +253,24 @@ section h2 {
     font-size: 2.3rem;
     color: #2e8b57;
     margin-bottom: 35px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: -0.5px;
 }
 
 .lunches-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 0 20px;
-    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 90%;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .lunch-card {
     background: white;
-    padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -315,42 +278,45 @@ section h2 {
 }
 
 .lunch-card:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-6px);
 }
 
 .lunch-dish {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .lunch-dish img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease;
+}
+
+.lunch-dish:hover img {
+    transform: scale(1.05);
 }
 
 .lunch-dish p {
-    font-size: 0.95rem;
-    color: #444;
+    font-size: 1rem;
+    color: #333;
     font-weight: 500;
     text-align: center;
 }
 
 .dessert-note {
-    font-size: 0.8rem;
-    color: #888;
-    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 15px;
     text-align: center;
+    font-style: italic;
 }
 
-.lunch-dish:hover {
-    transform: translateY(-6px) scale(1.08);
-}
-
+/* ========== Уведомления ========== */
 #notification-container {
     position: fixed;
     top: 0;
@@ -399,14 +365,66 @@ section h2 {
     transform: translateY(-2px);
 }
 
+/* ========== Адаптивность ========== */
 @media (max-width: 900px) {
     .lunches-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    section {
+        max-width: 95%;
     }
 }
 
 @media (max-width: 600px) {
+    section {
+        margin: 0 15px 40px;
+        padding: 25px 15px;
+    }
+
+    .filters {
+        gap: 8px;
+    }
+
+    .filters button {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+
+    .dish-card {
+        min-height: 440px;
+        padding: 20px;
+    }
+
+    .dish-card img {
+        height: 180px;
+    }
+
     .lunches-grid {
         grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .lunch-card {
+        padding: 20px;
+    }
+
+    .lunch-dish img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .form-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-column {
+        width: 100%;
     }
 }
