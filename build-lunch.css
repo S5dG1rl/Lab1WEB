@@ -242,7 +242,6 @@ section h2 {
     opacity: 0.9;
 }
 
-/* ========== Адаптивность ========== */
 @media (max-width: 800px) {
     .dishes-grid {
         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -280,5 +279,129 @@ section h2 {
 
     .form-column {
         width: 100%;
+    }
+}
+.lunches-section {
+    background-color: #f9f9f9;
+    padding: 50px 0 40px;
+    margin-bottom: 40px;
+}
+
+.lunches-section h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    color: #2e8b57;
+    margin-bottom: 35px;
+}
+
+.lunches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.lunch-card {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lunch-dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+
+.lunch-dish img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.lunch-dish p {
+    font-size: 0.95rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.dessert-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.lunch-dish:hover {
+    transform: translateY(-6px) scale(1.08);
+}
+
+#notification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.notification {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    pointer-events: auto;
+}
+
+.notification p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.notification button {
+    background: #2e8b57;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.notification button:hover {
+    background: #1e6b47;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .lunches-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .lunches-grid {
+        grid-template-columns: 1fr;
     }
 }
