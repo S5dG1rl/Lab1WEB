@@ -296,11 +296,11 @@ section h2 {
 
 .lunches-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .lunch-card {
@@ -311,6 +311,11 @@ section h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.lunch-card:hover {
+    transform: translateY(-6px) scale(1.02);
 }
 
 .lunch-dish {
@@ -318,12 +323,11 @@ section h2 {
     flex-direction: column;
     align-items: center;
     margin-bottom: 16px;
-    transition: transform 0.3s ease;
 }
 
 .lunch-dish img {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 8px;
@@ -333,6 +337,7 @@ section h2 {
     font-size: 0.95rem;
     color: #444;
     font-weight: 500;
+    text-align: center;
 }
 
 .dessert-note {
